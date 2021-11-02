@@ -7,19 +7,29 @@ STOP_WORDS = [
 
 class FileReader:
     def __init__(self, filename):
-        pass
+        self.filename = filename
 
     def read_contents(self):
         """
         This should read all the contents of the file
         and return them as one string.
         """
-        raise NotImplementedError("FileReader.read_contents")
+        with open(self.filename) as opened_file:
+                file_string = opened_file.read()
+        text = text.read()
+        clean_text = text.replace("\n", "").replace(".", "").replace("’", "").replace(
+            ";", "").replace("_", "").replace(",", "").lower().split(' ')
+        for word in clean_text:
+            words_out(clean_text, word)
+            return file_string
+
+
+    print(clean_text)
 
 
 class WordList:
     def __init__(self, text):
-        pass
+        self.text = text
 
     def extract_words(self):
         """
@@ -48,7 +58,7 @@ class WordList:
 
 class FreqPrinter:
     def __init__(self, freqs):
-        pass
+        self.fregs = freqs
 
     def print_freqs(self):
         """
